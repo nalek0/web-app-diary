@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+		<script type="text/javascript" src="/eel.js"></script>
+
+		<link rel="stylesheet" href="static/css/base.css">
+		
+		<script type="text/javascript" src="static/js/jquery.js"></script>
+		<script type="text/javascript" src="static/js/vue.js"></script>
+
+
+		<script type="text/javascript" src="static/js/pages/last-days.js"></script>
+		<script type="text/javascript" src="static/js/pages.js"></script>
+	</head>
+	<body>
+
+		<div class="center">
+			<div id="app">		
+				<page 
+					:page_client 	= "page_client"
+					:last_days_posts= "last_days_posts"
+				></page>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="static/js/app.js"></script>
+	</body>
+</html>

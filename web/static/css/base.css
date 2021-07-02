@@ -1,0 +1,51 @@
+div.center {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000011;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; }
+  div.center div#app {
+    width: 100%;
+    height: 100%;
+    background: white; }
+
+div.main {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  font-family: "Comic Sans MS"; }
+  div.main nav {
+    background: black; }
+    div.main nav .nav-button {
+      cursor: pointer;
+      padding: 10px;
+      margin-bottom: 10px;
+      color: white; }
+      div.main nav .nav-button:hover {
+        background: rgba(255, 255, 255, 0.3); }
+
+main header {
+  text-align: center;
+  text-size: 1.5rem;
+  margin-bottom: 2rem; }
+main article .note {
+  margin: 10px;
+  background: black;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 100px 1fr; }
+  main article .note > * {
+    color: white; }
+  main article .note .text-preview {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+
+/*# sourceMappingURL=base.css.map */

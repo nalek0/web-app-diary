@@ -30,22 +30,78 @@ div.main {
       div.main nav .nav-button:hover {
         background: rgba(255, 255, 255, 0.3); }
 
-main header {
-  text-align: center;
-  text-size: 1.5rem;
-  margin-bottom: 2rem; }
-main article .note {
+main {
+  overflow: auto; }
+  main header {
+    text-align: center;
+    font-size: 2rem; }
+  main article {
+    padding: 10px; }
+
+div#last_days_page .note {
   margin: 10px;
   background: black;
   border-radius: 10px;
   padding: 10px;
   display: grid;
-  grid-template-columns: 100px 1fr; }
-  main article .note > * {
+  grid-template-columns: 150px 1fr; }
+  div#last_days_page .note > * {
     color: white; }
-  main article .note .text-preview {
+  div#last_days_page .note .text-preview {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
+
+div#set_day_page div.form {
+  text-align: center; }
+div#set_day_page .input {
+  background: #000000;
+  color: white;
+  display: block;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: "Comic Sans MS"; }
+  div#set_day_page .input:active, div#set_day_page .input:focus {
+    background: #080808; }
+  div#set_day_page .input.wrong {
+    border: solid 3px red; }
+  div#set_day_page .input.good {
+    border: solid 3px #00FF0B; }
+div#set_day_page .buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center; }
+
+div.button {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none; }
+  div.button:hover {
+    text-decoration: underline; }
+  div.button:focus, div.button:active {
+    text-decoration: none; }
+  div.button.submit-btn {
+    background: #ff0000;
+    color: #000000; }
+    div.button.submit-btn:hover {
+      background: #ff4444; }
+    div.button.submit-btn:focus, div.button.submit-btn:active {
+      background: #ee0000; }
+  div.button.update-btn {
+    background: #ffff00;
+    color: #000000; }
+    div.button.update-btn:hover {
+      background: #ffff22; }
+    div.button.update-btn:focus, div.button.update-btn:active {
+      background: #eeee00; }
 
 /*# sourceMappingURL=base.css.map */

@@ -29,7 +29,7 @@ class PageClient {
 		this.pages 			= {};
 		this.active_page 	= undefined;
 
-		this.default_active_page_name = 'last-days';
+		this.default_active_page_name = 'set-day';
 	}
 
 	add_page(page) {
@@ -76,8 +76,16 @@ pageClient.add_page(
 		name 	= 'last-days', 
 		title 	= 'Последние дни',
 		onstart = async () => {
-			app.last_days_posts = await eel.get_last_days_posts(1)();
-		}));
+			app.last_days_posts = await eel.get_last_days_posts(7)();
+		}
+	)
+);
+pageClient.add_page(
+	new Page(
+		name 	= 'set-day', 
+		title 	= 'Сделать запись в дневник'
+	)
+);
 
 
 Vue.component('page', {

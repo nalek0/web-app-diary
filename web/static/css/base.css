@@ -90,16 +90,16 @@ div.button {
     background: #ff0000;
     color: #000000; }
     div.button.submit-btn:hover {
-      background: #ff8080; }
+      background: #ff3333; }
     div.button.submit-btn:focus, div.button.submit-btn:active {
-      background: maroon; }
+      background: #cc0000; }
   div.button.update-btn {
     background: #ffff00;
     color: #000000; }
     div.button.update-btn:hover {
-      background: #ffff80; }
+      background: #ffff33; }
     div.button.update-btn:focus, div.button.update-btn:active {
-      background: olive; }
+      background: #cccc00; }
 
 .page_block {
   background: rgba(25, 17, 30, 0.5);

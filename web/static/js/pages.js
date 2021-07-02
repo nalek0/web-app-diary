@@ -29,7 +29,7 @@ class PageClient {
 		this.pages 			= {};
 		this.active_page 	= undefined;
 
-		this.default_active_page_name = 'set-day';
+		this.default_active_page_name = 'last-days';
 	}
 
 	add_page(page) {
@@ -39,7 +39,7 @@ class PageClient {
 	render_template() {
 		let template = "";
 		template += "<div class='main'>";
-			template += "<nav>";
+			template += "<nav class='page_block'>";
 				for (let page_name in this.pages) {
 					template += this.pages[page_name].get_link();
 				}

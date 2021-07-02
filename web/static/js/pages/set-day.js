@@ -4,13 +4,13 @@ Vue.component('set-day', {
 	props: [],
 	template: `
 		<div id="set_day_page">
-			<header>Сделать запись:</header>
+			<header class="page_block">Сделать запись:</header>
 			<article>
 				<div class="form">
-					<div><input class="input" type="text" placeholder="Год" name="year"></div>
-					<div><input class="input" type="text" placeholder="Месяц" name="month"></div>
-					<div><input class="input" type="text" placeholder="День" name="day"></div>
-					<div><textarea name="text" style="height: 100px; resize: none;" class="input" placeholder="Текст"></textarea></div>
+					<div><input class="input page_block" type="text" placeholder="Год" name="year"></div>
+					<div><input class="input page_block" type="text" placeholder="Месяц" name="month"></div>
+					<div><input class="input page_block" type="text" placeholder="День" name="day"></div>
+					<div><textarea class="input page_block" name="text" style="height: 100px; resize: none;" placeholder="Текст"></textarea></div>
 					<div class="buttons">
 						<div class="button update-btn" @click="set_today()">Сегодня</div>
 						<div class="button submit-btn" @click="send_data()">Отправить</div>

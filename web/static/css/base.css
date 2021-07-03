@@ -1,60 +1,73 @@
-div.center {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background: #000011;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly; }
-  div.center div#app {
-    width: 100%;
-    height: 100%;
-    background: white; }
+body {
+  margin: 0;
+  padding: 0; }
 
-div.main {
-  display: grid;
-  grid-template-columns: 200px 1fr;
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+.page_block {
+  background: rgba(25, 17, 30, 0.5);
+  backdrop-filter: blur(20px);
+  color: white; }
+
+.standart_page {
+  display: flex;
   width: 100%;
   height: 100%;
   background: url("/static/img/wallpaper.jpg");
   background-size: cover;
   background-position: center;
-  font-size: 20px;
+  font-size: 16px;
   font-family: "Comic Sans MS"; }
-  div.main nav .nav-button {
-    cursor: pointer;
-    padding: 10px;
-    margin-bottom: 10px;
-    color: white;
-    text-align: center; }
-    div.main nav .nav-button:hover {
-      background: rgba(228, 69, 42, 0.05); }
-  div.main main {
-    overflow: auto; }
-    div.main main header {
-      text-align: center;
+  .standart_page nav {
+    display: inline-block;
+    height: 100%; }
+    .standart_page nav .nav_header {
       font-size: 2rem; }
-    div.main main article {
+    .standart_page nav .nav_buttons {
+      width: 200px;
+      padding: 5px; }
+      .standart_page nav .nav_buttons .nav_button {
+        cursor: pointer;
+        padding: 10px;
+        margin-bottom: 10px;
+        color: white;
+        text-align: center;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-left: 3px solid transparent; }
+        .standart_page nav .nav_buttons .nav_button:hover, .standart_page nav .nav_buttons .nav_button.active {
+          background: rgba(228, 69, 42, 0.05);
+          border-left: 3px solid rgba(228, 69, 42, 0.2); }
+  .standart_page main {
+    width: 100%;
+    overflow: auto; }
+    .standart_page main header {
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 10px; }
+    .standart_page main article {
       padding: 10px; }
 
-div#last_days_page .note {
-  margin: 10px;
+#last_days_page .note {
   border-radius: 10px;
   padding: 10px;
   display: grid;
   grid-template-columns: 150px 1fr; }
-  div#last_days_page .note > * {
+  #last_days_page .note:not(:last-child) {
+    margin-bottom: 10px; }
+  #last_days_page .note > * {
     color: white; }
-  div#last_days_page .note .text-preview {
+  #last_days_page .note .text-preview {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
 
-div#set_day_page div.form {
+#set_day_page .form {
   text-align: center; }
-div#set_day_page .input {
+#set_day_page .input {
   color: white;
   display: block;
   width: 100%;
@@ -67,44 +80,54 @@ div#set_day_page .input {
   overflow: hidden;
   font-size: 20px;
   font-family: "Comic Sans MS"; }
-  div#set_day_page .input.wrong {
+  #set_day_page .input.wrong {
     border: solid 3px red; }
-  div#set_day_page .input.good {
+  #set_day_page .input.good {
     border: solid 3px #00FF0B; }
-div#set_day_page .buttons {
+#set_day_page textarea.input {
+  overflow: auto;
+  height: 400px;
+  resize: none; }
+#set_day_page .buttons {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: center; }
 
-div.button {
+.button {
   display: inline-block;
   cursor: pointer;
   border-radius: 5px;
   padding: 5px;
   text-decoration: none; }
-  div.button:hover {
+  .button:hover {
     text-decoration: underline; }
-  div.button:focus, div.button:active {
+  .button:focus, .button:active {
     text-decoration: none; }
-  div.button.submit-btn {
+  .button.submit-btn {
     background: #ff0000;
     color: #000000; }
-    div.button.submit-btn:hover {
+    .button.submit-btn:hover {
       background: #ff3333; }
-    div.button.submit-btn:focus, div.button.submit-btn:active {
+    .button.submit-btn:focus, .button.submit-btn:active {
       background: #cc0000; }
-  div.button.update-btn {
+  .button.update-btn {
     background: #ffff00;
     color: #000000; }
-    div.button.update-btn:hover {
+    .button.update-btn:hover {
       background: #ffff33; }
-    div.button.update-btn:focus, div.button.update-btn:active {
+    .button.update-btn:focus, .button.update-btn:active {
       background: #cccc00; }
 
-.page_block {
-  background: rgba(25, 17, 30, 0.5);
-  backdrop-filter: blur(20px);
-  color: white; }
+.beautiful_scrollbar::-webkit-scrollbar {
+  background: transparent;
+  width: 4px;
+  border: none;
+  outline: none; }
+.beautiful_scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: transparent; }
+.beautiful_scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #19111e; }
 
 /*# sourceMappingURL=base.css.map */

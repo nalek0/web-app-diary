@@ -10,17 +10,8 @@ class Page {
 		return `<${this.name}
 			v-if="page_client && page_client.active_page && page_client.active_page.name === '${this.name}'"
 			:last_days_posts="last_days_posts"
+			:page_client="page_client"
 		></${this.name}>`;
-	}
-
-	get_link() {
-		return `
-			<div 
-				class="nav-button" 
-				@click="page_client.change_page('${this.name}')"
-				title="${this.title}"
-			>${this.title}</div>
-		`;
 	}
 }
 
@@ -38,17 +29,10 @@ class PageClient {
 
 	render_template() {
 		let template = "";
-		template += "<div class='main'>";
-			template += "<nav class='page_block'>";
-				for (let page_name in this.pages) {
-					template += this.pages[page_name].get_link();
-				}
-			template += "</nav>";
-			template += "<main>";
-				for (let page_name in this.pages) {
-					template += this.pages[page_name].render_template();
-				}
-			template += "</main>";
+		template += "<div class='page'>";
+			for (let page_name in this.pages) {
+				template += this.pages[page_name].render_template();
+			}
 		template += "</div>";
 		return template;
 	}

@@ -1,42 +1,36 @@
 const isInteger = string => string / 1 !== NaN;
 
 Vue.component('set-day', {
-	props: [],
+	props: ['page_client'],
 	template: `
-		<div id="set_day_page">
-			<header class="page_block">Сделать запись:</header>
-			<article>
-				<div class="form">
-					<div><input class="input page_block" type="text" placeholder="Год" name="year"></div>
-					<div><input class="input page_block" type="text" placeholder="Месяц" name="month"></div>
-					<div><input class="input page_block" type="text" placeholder="День" name="day"></div>
-					<div>
-						<textarea 
-							class="input page_block" 
-							name="text" 
-							style="min-height: 100px; resize: none;" 
-							placeholder="Текст"
-							@change = 	"resize()"
-							@cut = 		"delayedResize()"
-							@paste = 	"delayedResize()"
-							@drop = 	"delayedResize()"
-							@keydown = 	"delayedResize()">
-						</textarea>
+		<div id="set_day_page" class="standart_page">
+			<nav-block :page_client="page_client"></nav-block>
+			<main class="beautiful_scrollbar">
+				<header class="page_block">Сделать сегодняшнюю запись:</header>
+				<article>
+					<div class="form">
+						<div>
+							<textarea 
+								class="input page_block beautiful_scrollbar" 
+								name="text"
+								placeholder="Текст">
+							</textarea>
+						</div>
+						<div class="buttons">
+							<div class="button submit-btn" @click="send_data()">Отправить</div>
+						</div>
 					</div>
-					<div class="buttons">
-						<div class="button update-btn" @click="set_today()">Сегодня</div>
-						<div class="button submit-btn" @click="send_data()">Отправить</div>
-					</div>
-				</div>
-			</article>
+				</article>
+			</main>
 		</div>
 	`,
 	methods: {
 		send_data() {
 			$(".input").removeClass('wrong');
-			let year 	= document.querySelector("input[name='year']").value;
-			let month 	= document.querySelector("input[name='month']").value;
-			let day 	= document.querySelector("input[name='day']").value;
+			let today = new Date();
+			let year 	= today.getFullYear();
+			let month 	= today.getMonth() + 1;
+			let day 	= today.getDate();
 			let text 	= document.querySelector("textarea[name='text']").value;
 
 			if (isInteger(year) && isInteger(month) && isInteger(day) && text !== "") {
@@ -46,29 +40,6 @@ Vue.component('set-day', {
 			else {
 				$(".input").addClass('wrong');
 			}
-		},
-		set_today() {
-			let today = new Date();
-			document.querySelector("input[name='year']").value 	= today.getFullYear();
-			document.querySelector("input[name='month']").value = today.getMonth() + 1;
-			document.querySelector("input[name='day']").value 	= today.getDate();
-		},
-		resize() {
-			// this.textarea.style.height = 'auto';
-			// this.textarea.style.height = this.textarea.scrollHeight+'px';
-			if (this.textarea.offsetHeight < this.textarea.scrollHeight) {
-				$(this.textarea).animate({
-					height: this.textarea.scrollHeight + "px"
-				}, 500);
-			}
-		},
-		delayedResize() {
-			window.setTimeout(this.resize, 0);
-		}
-	},
-	computed: {
-		textarea() {
-			return document.querySelector('textarea');
 		}
 	}
 });

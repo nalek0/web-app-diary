@@ -1,9 +1,9 @@
-$color1_r: 	25;
-$color1_g: 	17;
-$color1_b: 	30;
-$color2_r: 	228;
-$color2_g: 	69;
-$color2_b: 	42;
+$color1_r: 	14;
+$color1_g: 	18;
+$color1_b: 	72;
+$color2_r: 	181;
+$color2_g: 	162;
+$color2_b: 	130;
 
 body {
 	margin: 0;
@@ -14,6 +14,13 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	
+	background: url('/static/img/wallpaper.jpg');
+	background-size: cover;
+	background-position: center;
+
+	font-size: 16px;
+	font-family: "Comic Sans MS";
 }
 
 .page_block {
@@ -26,13 +33,6 @@ body {
 	display: flex;
 	width: 100%;
 	height: 100%;
-	
-	background: url('/static/img/wallpaper.jpg');
-	background-size: cover;
-	background-position: center;
-
-	font-size: 16px;
-	font-family: "Comic Sans MS";
 
 	nav {
 		display: inline-block;

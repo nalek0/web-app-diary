@@ -73,9 +73,6 @@ pageClient.add_page(
 		args 	= [],
 		onstart = async data => {
 			app.last_days_posts = await eel.get_last_days_posts(7)();
-		},
-		onfinish = () => {
-			app.last_days_posts = undefined;
 		}
 	)
 );

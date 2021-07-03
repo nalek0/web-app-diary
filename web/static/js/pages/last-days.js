@@ -12,7 +12,7 @@ Vue.component('last-days', {
 						@click="change_page('day', post.date)" >
 						<div class="date">{{stringfy_date(post.date)}}</div>
 						<div v-if="post.text" class="text-preview">{{post.text}}</div>
-						<div v-else class="text-preview">Ничего не написано в этот день</div>
+						<div v-else class="text-preview"><i>Ничего не написано в этот день</i></div>
 					</div>
 				</article>
 			</main>

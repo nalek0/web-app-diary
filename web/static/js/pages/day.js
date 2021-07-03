@@ -15,11 +15,13 @@ Vue.component('day', {
 							<textarea 
 								class="input page_block beautiful_scrollbar" 
 								name="text"
-								placeholder="Текст" :value="text">
+								placeholder="Текст" :value="text"
+								@change = 	"change()"
+								@cut = 		"delayedChange()"
+								@paste = 	"delayedChange()"
+								@drop = 	"delayedChange()"
+								@keydown = 	"delayedChange()">
 							</textarea>
-						</div>
-						<div class="buttons">
-							<div class="button submit-btn" @click="send_data()">Отправить</div>
 						</div>
 					</div>
 				</article>
@@ -27,18 +29,13 @@ Vue.component('day', {
 		</div>
 	`,
 	methods: {
-		send_data() {
-			$(".input").removeClass('wrong');
-			let today = new Date();
-			let text 	= document.querySelector("textarea[name='text']").value;
+		change() {
+			let text = document.querySelector("textarea[name='text']").value;
 
-			if (isInteger(this.year) && isInteger(this.month) && isInteger(this.day) && text !== "") {
-				eel.set_text(this.year, this.month, this.day, text)();
-				$(".input").addClass('good');
-			}
-			else {
-				$(".input").addClass('wrong');
-			}
+			eel.set_text(this.year, this.month, this.day, text)();
+		},
+		delayedChange() {
+			setTimeout(this.change, 0);
 		}
 	},
 	computed: {

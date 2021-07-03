@@ -63,4 +63,4 @@ if __name__ == "__main__":
 	eel.init('web')
 	eel.start(
 		'index.html',
-		size=(1100, 650))
+		size = (1100, 650))

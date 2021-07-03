@@ -1,7 +1,16 @@
+const config = {
+	mainPage: 'day',
+	lastDaysNumber: 7,
+	mainPageData: {
+		year: 	new Date().getFullYear(),
+		month: 	new Date().getMonth() + 1,
+		day: 	new Date().getDate()
+	}
+};
+
 class Page {
-	constructor(name, title, args = [], onstart = () => {}, onfinish = () => {}) {
+	constructor(name, args = [], onstart = () => {}, onfinish = () => {}) {
 		this.name 		= name;
-		this.title 		= title;
 		this.onstart 	= onstart;
 		this.onfinish 	= onfinish;
 
@@ -28,7 +37,7 @@ class PageClient {
 		this.pages 			= {};
 		this.active_page 	= undefined;
 
-		this.default_active_page_name = 'last-days';
+		this.default_active_page_name = 'day';
 	}
 
 	add_page(page) {
@@ -37,17 +46,15 @@ class PageClient {
 
 	render_template() {
 		let template = "";
-		template += "<div class='page'>";
-			for (let page_name in this.pages) {
-				template += this.pages[page_name].render_template();
-			}
-		template += "</div>";
+		for (let page_name in this.pages) template += this.pages[page_name].render_template();
 		return template;
 	}
 
 	change_page(name, data = {}) {
 		if (this.pages[name]) {
-			this.active_page.onfinish();
+			if (this.active_page) {
+				this.active_page.onfinish();
+			}
 			this.active_page = this.pages[name];
 			for (let key in data) {
 				app.page_data[key] = data[key];
@@ -59,9 +66,8 @@ class PageClient {
 		}
 	}
 
-	set_active_page() {
-		this.active_page = this.pages[this.default_active_page_name];
-		this.active_page.onstart();
+	start() {
+		this.change_page(config.mainPage, config.mainPageData);
 	}
 }
 
@@ -69,7 +75,6 @@ var pageClient = new PageClient();
 pageClient.add_page(
 	new Page(
 		name 	= 'last-days', 
-		title 	= 'Последние дни',
 		args 	= [],
 		onstart = async data => {
 			app.last_days_posts = await eel.get_last_days_posts(7)();
@@ -79,7 +84,6 @@ pageClient.add_page(
 pageClient.add_page(
 	new Page(
 		name 	= 'day',
-		title 	= 'День',
 		args 	= ['year', 'month', 'day', 'text'],
 		onstart = async data => {
 			app.page_data.text = await eel.get_text(data.year, data.month, data.day)();
@@ -89,9 +93,20 @@ pageClient.add_page(
 		}
 	)
 );
+pageClient.add_page(
+	new Page(
+		name 	= 'calendar',
+		args 	= []
+	)
+);
 
 
 Vue.component('page', {
 	props: ['last_days_posts', 'page_client', 'page_data'],
-	template: pageClient.render_template()
+	template: `
+		<div class="page standart_page">
+			<nav-block :page_client="page_client"></nav-block>
+			` + pageClient.render_template() + `
+		</div>
+	`
 });

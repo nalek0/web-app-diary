@@ -13,4 +13,4 @@ var app = new Vue({
 	}
 });
 
-pageClient.set_active_page();
+pageClient.start();

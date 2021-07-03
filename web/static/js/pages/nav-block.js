@@ -20,18 +20,22 @@ Vue.component('nav-block', {
 		return {
 			pages: [
 				{
-					name: 'last-days',
-					text: 'Последние дни',
-					data: {}
-				},
-				{
 					name: 'day',
-					text: 'Сделать запись',
+					text: 'Сегодня',
 					data: {
 						year: 	new Date().getFullYear(),
 						month: 	new Date().getMonth() + 1,
 						day: 	new Date().getDate()
 					}
+				},
+				{
+					name: 'last-days',
+					text: 'Последние дни',
+					data: {}
+				},
+				{
+					name: 'calendar',
+					text: 'Календарь'
 				}
 			]
 		}

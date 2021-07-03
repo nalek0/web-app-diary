@@ -92,6 +92,32 @@ body {
   justify-content: space-around;
   align-items: center; }
 
+#calendar article {
+  text-align: center; }
+#calendar .week {
+  margin: auto;
+  display: inline-block; }
+  #calendar .week:not(:last-child) {
+    margin-bottom: 15px; }
+  #calendar .week .day {
+    font-size: 2.5rem;
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid 3px transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-out; }
+    #calendar .week .day:not(:last-child) {
+      margin-right: 15px; }
+    #calendar .week .day:hover {
+      border-color: rgba(181, 162, 130, 0.75); }
+    #calendar .week .day.other_month {
+      color: grey; }
+      #calendar .week .day.other_month:hover {
+        border-color: rgba(181, 162, 130, 0.2); }
+
 .button {
   display: inline-block;
   cursor: pointer;

@@ -31,15 +31,12 @@ def get_last_days_posts(number: int):
 	delta = timedelta(days=1)
 
 	for i in range(number):
-		str_day = ""
-		if str(day.date()) == str(today.date()):
-			str_day = 'Сегодня'
-		elif str(day.date()) == str((today - delta).date()):
-			str_day = 'Вчера'
-		else:
-			str_day = str(day.date())
 		return_list.append({
-			'date': str_day,
+			'date': {
+				'year': 	day.year,
+				'month': 	day.month,
+				'day': 		day.day
+			},
 			'text': database.get_text(day)
 		});
 		day -= delta
@@ -53,6 +50,14 @@ def set_text(year: int, month: int, day: int, text: str):
 		text
 	)
 	database.update()
+
+@eel.expose
+def get_text(year: int, month: int, day: int):
+	text = database.get_text(datetime(int(year), int(month), int(day)))
+	if text == None:
+		return ""
+	else:
+		return text
 
 if __name__ == "__main__":
 	eel.init('web')

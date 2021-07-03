@@ -24,23 +24,20 @@ body {
   .standart_page nav {
     display: inline-block;
     height: 100%; }
-    .standart_page nav .nav_header {
-      font-size: 2rem; }
     .standart_page nav .nav_buttons {
-      width: 200px;
-      padding: 5px; }
+      width: 200px; }
       .standart_page nav .nav_buttons .nav_button {
         cursor: pointer;
         padding: 10px;
-        margin-bottom: 10px;
         color: white;
         text-align: center;
-        border-top-left-radius: 3px;
-        border-bottom-left-radius: 3px;
-        border-left: 3px solid transparent; }
-        .standart_page nav .nav_buttons .nav_button:hover, .standart_page nav .nav_buttons .nav_button.active {
+        border-left: 3px solid transparent;
+        transition: all 0.3s ease-out; }
+        .standart_page nav .nav_buttons .nav_button.active {
+          border-left-color: rgba(228, 69, 42, 0.2); }
+        .standart_page nav .nav_buttons .nav_button:hover {
           background: rgba(228, 69, 42, 0.05);
-          border-left: 3px solid rgba(228, 69, 42, 0.2); }
+          border-left-color: rgba(228, 69, 42, 0.2); }
   .standart_page main {
     width: 100%;
     overflow: auto; }
@@ -54,6 +51,7 @@ body {
 #last_days_page .note {
   border-radius: 10px;
   padding: 10px;
+  cursor: pointer;
   display: grid;
   grid-template-columns: 150px 1fr; }
   #last_days_page .note:not(:last-child) {

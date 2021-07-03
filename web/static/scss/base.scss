@@ -37,29 +37,25 @@ body {
 	nav {
 		display: inline-block;
 		height: 100%;
-
-		.nav_header {
-			font-size: 2rem;
-		}
 		
 		.nav_buttons {
 			width: 200px;
-			padding: 5px;
 			
 			.nav_button {
 				cursor: pointer;
 				padding: 10px;
-				margin-bottom: 10px;
 				color: white;
 				text-align: center;
-				border-top-left-radius: 3px;
-				border-bottom-left-radius: 3px;
 				border-left: 3px solid transparent;
 
-				&:hover,
+				transition: all 0.3s ease-out;
+				
 				&.active {
+					border-left-color: rgba($color2_r, $color2_g, $color2_b, 0.2);
+				}
+				&:hover {
 					background: rgba($color2_r, $color2_g, $color2_b, 0.05);
-					border-left: 3px solid rgba($color2_r, $color2_g, $color2_b, 0.2);
+					border-left-color: rgba($color2_r, $color2_g, $color2_b, 0.2);
 				}
 			}
 		}
@@ -85,6 +81,7 @@ body {
 	.note {
 		border-radius: 10px;
 		padding: 10px;
+		cursor: pointer;
 
 		display: grid;
 		grid-template-columns: 150px 1fr;

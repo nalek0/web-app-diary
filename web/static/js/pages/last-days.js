@@ -1,9 +1,9 @@
 Vue.component('last-days', {
 	props: ['last_days_posts', 'page_client'],
 	template: `
-		<main id="last_days_page" class="beautiful_scrollbar">
+		<main id="last_days_page">
 			<header class="page_block">Записи за последнюю неделю:</header>
-			<article>
+			<article class="beautiful_scrollbar">
 				<div 
 					v-for="post in last_days_posts" 
 					class="note page_block"

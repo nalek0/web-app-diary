@@ -8,9 +8,9 @@ const getNextDay = day => {
 Vue.component('calendar', {
 	props: [],
 	template: `
-		<main id="calendar" class="beautiful_scrollbar">
+		<main id="calendar">
 			<header class="page_block">Календарь записей:</header>
-			<article>
+			<article class="beautiful_scrollbar">
 				<div 
 					v-for="week in calendar_weeks"
 					class="week">

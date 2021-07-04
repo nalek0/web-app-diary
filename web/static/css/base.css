@@ -6,14 +6,14 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("/static/img/wallpaper.jpg");
+  background: var(--wallpaper);
   background-size: cover;
   background-position: center;
   font-size: 16px;
   font-family: "Comic Sans MS"; }
 
 .page_block {
-  background: rgba(14, 18, 72, 0.5);
+  background: rgba(var(--color1_r), var(--color1_g), var(--color1_b), 0.5);
   backdrop-filter: blur(20px);
   color: white; }
 
@@ -34,19 +34,28 @@ body {
         border-left: 3px solid transparent;
         transition: all 0.3s ease-out; }
         .standart_page nav .nav_buttons .nav_button.active {
-          border-left-color: rgba(181, 162, 130, 0.2); }
+          border-left-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.2); }
         .standart_page nav .nav_buttons .nav_button:hover {
-          background: rgba(181, 162, 130, 0.05);
-          border-left-color: rgba(181, 162, 130, 0.2); }
+          background: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.05);
+          border-left-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.2); }
   .standart_page main {
     width: 100%;
-    overflow: auto; }
+    height: 100%;
+    overflow: auto;
+    display: grid;
+    grid-template-rows: 60px 1fr; }
     .standart_page main header {
       font-size: 1.5rem;
       text-align: center;
-      padding: 10px; }
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly; }
     .standart_page main article {
-      padding: 10px; }
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      overflow: auto; }
 
 #last_days_page .note {
   border-radius: 10px;
@@ -64,28 +73,21 @@ body {
     text-overflow: ellipsis; }
 
 #set_day_page .form {
-  text-align: center; }
-#set_day_page .input {
-  color: white;
+  text-align: center;
+  width: 100%;
+  height: 100%; }
+#set_day_page textarea.input {
   display: block;
   width: 100%;
+  height: 100%;
+  overflow: auto;
+  resize: none;
+  color: white;
   outline: none;
   border: none;
   border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-  font-size: 20px;
-  font-family: "Comic Sans MS"; }
-  #set_day_page .input.wrong {
-    border: solid 3px red; }
-  #set_day_page .input.good {
-    border: solid 3px #00FF0B; }
-#set_day_page textarea.input {
-  overflow: auto;
-  height: 400px;
-  resize: none; }
+  padding: 10px;
+  box-sizing: border-box; }
 #set_day_page .buttons {
   display: flex;
   flex-wrap: nowrap;
@@ -112,11 +114,11 @@ body {
     #calendar .week .day:not(:last-child) {
       margin-right: 15px; }
     #calendar .week .day:hover {
-      border-color: rgba(181, 162, 130, 0.75); }
+      border-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.75); }
     #calendar .week .day.other_month {
       color: grey; }
       #calendar .week .day.other_month:hover {
-        border-color: rgba(181, 162, 130, 0.2); }
+        border-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.2); }
 
 .button {
   display: inline-block;
@@ -152,6 +154,6 @@ body {
   border-radius: 5px;
   background: transparent; }
 .beautiful_scrollbar:hover::-webkit-scrollbar-thumb {
-  background: #0e1248; }
+  background: rgb(var(--color1_r), var(--color1_g), var(--color1_b)); }
 
 /*# sourceMappingURL=base.css.map */

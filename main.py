@@ -74,7 +74,7 @@ class Settings:
 			+ "--color2_r: {color};".format(color = self.settings['highlight_color']['r']) 								\
 			+ "--color2_g: {color};".format(color = self.settings['highlight_color']['g']) 								\
 			+ "--color2_b: {color};".format(color = self.settings['highlight_color']['b']) 								\
-			+ "--wallpaper: {wallpaper};".format(wallpaper = "url('/static/img/'" + self.settings['wallpaper'] + ")") 	\
+			+ "--wallpaper: {wallpaper};".format(wallpaper = "url('/static/img/" + self.settings['wallpaper'] + "')") 	\
 			+ "}" 																										\
 			+ "</style>"
 		return return_style
@@ -120,8 +120,6 @@ def get_text(year: int, month: int, day: int):
 
 if __name__ == "__main__":
 	eel.init(settings.get('folder'))
-
-	print(settings.get_style())
 
 	with open(f'{settings.get("folder")}/index.html', 'w', encoding='utf-8') as index:
 		with open(f'{settings.get("folder")}/template.html', 'r', encoding='utf-8') as template:

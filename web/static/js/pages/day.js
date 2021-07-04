@@ -3,24 +3,22 @@ const isInteger = string => string / 1 !== NaN;
 Vue.component('day', {
 	props: ['page_client', 'year', 'month', 'day', 'text'],
 	template: `
-		<main id="set_day_page" class="beautiful_scrollbar">
+		<main id="set_day_page">
 			<header v-if="this.is_today" class="page_block">Сегодняшняя запись</header>
 			<header v-else class="page_block">Запись {{ this.page_str_date }}</header>
 			
-			<article>
+			<article class="beautiful_scrollbar">
 				<div class="form">
-					<div>
-						<textarea 
-							class="input page_block beautiful_scrollbar" 
-							name="text"
-							placeholder="Текст" :value="text"
-							@change = 	"change()"
-							@cut = 		"delayedChange()"
-							@paste = 	"delayedChange()"
-							@drop = 	"delayedChange()"
-							@keydown = 	"delayedChange()">
-						</textarea>
-					</div>
+					<textarea 
+						class="input page_block beautiful_scrollbar" 
+						name="text"
+						placeholder="Текст" :value="text"
+						@change = 	"change()"
+						@cut = 		"delayedChange()"
+						@paste = 	"delayedChange()"
+						@drop = 	"delayedChange()"
+						@keydown = 	"delayedChange()">
+					</textarea>
 				</div>
 			</article>
 		</main>

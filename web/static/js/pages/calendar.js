@@ -58,7 +58,6 @@ Vue.component('calendar', {
 				11: 'Ноябрь',
 				12: 'Декабрь'
 			}
-
 		}
 	},
 	computed: {
@@ -98,7 +97,6 @@ Vue.component('calendar', {
 				curr_day = getNextDay(curr_day);
 			}
 
-			console.log(days);
 			return days;
 		},
 		first_day_month() {

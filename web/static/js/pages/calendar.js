@@ -20,14 +20,17 @@ Vue.component('calendar', {
 						@click="change_month('left')">
 				</div>
 				<div class="calendar_part">
-					<div class="calendar">
+					<div 
+							class="calendar"
+							style="
+								display: grid;
+								grid-template-columns: repeat(7, 1fr);">
 						<div 
-							v-for="week in calendar_weeks"
-							class="week">
+								class="calendar_cell"
+								v-for="day in calendar_weeks">
 							<div 
-								v-for="day in week"
-								:class="'page_block day' + ((day.month !== first_day_month.month)? ' other_month': '')"
-								@click="change_page('day', day)">
+									:class="'page_block day' + ((day.month !== first_day_month.month)? ' other_month': '')"
+									@click="change_page('day', day)">
 								{{day.day}}
 							</div>
 						</div>
@@ -56,7 +59,7 @@ Vue.component('calendar', {
 				first_day_month.getDate() - first_day_month.getDay() + 1
 			);
 
-			let weeks = [];
+			let days = [];
 			let last_week_ind = -1;
 
 			let curr_day = new Date(
@@ -69,12 +72,8 @@ Vue.component('calendar', {
 				first_day_month.getMonth() === curr_day.getMonth() || 
 				first_day.getMonth() === curr_day.getMonth() ||
 				curr_day.getDay() !== 1) {
-				if (curr_day.getDay() === 1) {
-					weeks.push([]);
-					last_week_ind++;
-				}
 
-				weeks[last_week_ind].push({
+				days.push({
 					week_day: 	curr_day.getDay(),
 					day: 		curr_day.getDate(),
 					month: 		curr_day.getMonth() + 1,
@@ -83,8 +82,9 @@ Vue.component('calendar', {
 
 				curr_day = getNextDay(curr_day);
 			}
-			console.log(weeks);
-			return weeks;
+
+			console.log(days);
+			return days;
 		},
 		first_day_month() {
 			let day = new Date(this.year, this.month - 1, 1);
@@ -117,3 +117,24 @@ Vue.component('calendar', {
 		}
 	}
 });
+
+function calendar_resize() {
+	let width = $('#calendar article').width() 
+		- 100 	/* Buttons */ 
+		- 20 	/* Minimal distance to buttons*/;
+	let height = $('#calendar article').height();
+	let num_days = $('.calendar_part > div.calendar').children().length;
+	let num_weeks = num_days / 7;
+
+	let new_width 	= width / 7;
+	let new_height 	= height / num_weeks;
+	// console.log(num_days, num_weeks);
+
+	$('.calendar_cell').css({
+		width: 	Math.min(new_width, new_height),
+		height: Math.min(new_width, new_height)
+	});
+	// console.log(width, height, new_width, new_height, Math.min(new_width, new_height));
+}
+
+setInterval(calendar_resize, 1000 / 20);

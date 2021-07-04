@@ -170,44 +170,41 @@ $calendar-font-size: 2.5rem;
 	.calendar {
 		text-align: center;
 
-		.week {
-			margin: auto;
-			display: inline-block;
+		.calendar_cell {
+			padding: 5px;
+			box-sizing: border-box;
+		}
+
+		.day {
+			font-size: $calendar-font-size;
+
+			width: 100%;
+			height: 100%;
+
+			display: inline-flex;
+			justify-content: space-around;
+			align-items: center;
+
+			border: solid 3px transparent;
+			cursor: pointer;
+
+			transition: all 0.3s ease-out;
 
 			&:not(:last-child) {
-				margin-bottom: $calendar-delta;
+				margin-right: $calendar-delta;
 			}
 
-			.day {
-				font-size: $calendar-font-size;
-				width: $calendar-block-size;
-				height: $calendar-block-size;
+			&:hover {
+				border-color: rgba($color2_r, $color2_g, $color2_b, 0.75);
+			}
 
-				display: inline-flex;
-				justify-content: space-around;
-				align-items: center;
-
-				border: solid 3px transparent;
-				cursor: pointer;
-
-				transition: all 0.3s ease-out;
-
-				&:not(:last-child) {
-					margin-right: $calendar-delta;
-				}
+			&.other_month {
+				color: grey;
+				background: rgba(var(--color1_r), var(--color1_g), var(--color1_b), 0.25);
 
 				&:hover {
-					border-color: rgba($color2_r, $color2_g, $color2_b, 0.75);
-				}
 
-				&.other_month {
-					color: grey;
-					background: rgba(var(--color1_r), var(--color1_g), var(--color1_b), 0.25);
-
-					&:hover {
-
-						border-color: rgba($color2_r, $color2_g, $color2_b, 0.2);
-					}
+					border-color: rgba($color2_r, $color2_g, $color2_b, 0.2);
 				}
 			}
 		}

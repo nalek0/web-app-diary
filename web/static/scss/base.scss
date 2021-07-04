@@ -145,8 +145,6 @@ body {
 	}
 }
 
-$calendar-delta: 15px;
-$calendar-block-size: 80px;
 $calendar-font-size: 2.5rem;
 #calendar {
 	article { 
@@ -169,6 +167,14 @@ $calendar-font-size: 2.5rem;
 
 	.calendar {
 		text-align: center;
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		opacity: 0;
+		transition: opacity 0.3s ease-out;
+
+		&.active {
+			opacity: 1;
+		}
 
 		.calendar_cell {
 			padding: 5px;
@@ -190,10 +196,6 @@ $calendar-font-size: 2.5rem;
 
 			transition: all 0.3s ease-out;
 
-			&:not(:last-child) {
-				margin-right: $calendar-delta;
-			}
-
 			&:hover {
 				border-color: rgba($color2_r, $color2_g, $color2_b, 0.75);
 			}
@@ -203,7 +205,6 @@ $calendar-font-size: 2.5rem;
 				background: rgba(var(--color1_r), var(--color1_g), var(--color1_b), 0.25);
 
 				&:hover {
-
 					border-color: rgba($color2_r, $color2_g, $color2_b, 0.2);
 				}
 			}

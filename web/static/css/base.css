@@ -106,7 +106,13 @@ body {
     width: 100%;
     cursor: pointer; }
 #calendar .calendar {
-  text-align: center; }
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  opacity: 0;
+  transition: opacity 0.3s ease-out; }
+  #calendar .calendar.active {
+    opacity: 1; }
   #calendar .calendar .calendar_cell {
     padding: 5px;
     box-sizing: border-box; }
@@ -120,8 +126,6 @@ body {
     border: solid 3px transparent;
     cursor: pointer;
     transition: all 0.3s ease-out; }
-    #calendar .calendar .day:not(:last-child) {
-      margin-right: 15px; }
     #calendar .calendar .day:hover {
       border-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.75); }
     #calendar .calendar .day.other_month {

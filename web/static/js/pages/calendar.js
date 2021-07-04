@@ -10,7 +10,7 @@ Vue.component('calendar', {
 	template: `
 		<main id="calendar">
 			<header v-if="current_month" class="page_block">Текущий месяц:</header>
-			<header v-else class="page_block">{{this.month}} / {{this.year}}</header>
+			<header v-else class="page_block">{{month_names[this.month]}} {{this.year}}</header>
 			<article class="beautiful_scrollbar">
 				<div class="calendar_part btn-part">
 					<img 
@@ -20,11 +20,7 @@ Vue.component('calendar', {
 						@click="change_month('left')">
 				</div>
 				<div class="calendar_part">
-					<div 
-							class="calendar"
-							style="
-								display: grid;
-								grid-template-columns: repeat(7, 1fr);">
+					<div class="calendar">
 						<div 
 								class="calendar_cell"
 								v-for="day in calendar_weeks">
@@ -46,6 +42,25 @@ Vue.component('calendar', {
 			</article>
 		</main>
 	`,
+	data() {
+		return {
+			month_names: {
+				1: 'Январь',
+				2: 'Февраль',
+				3: 'Март',
+				4: 'Апрель',
+				5: 'Май',
+				6: 'Июнь',
+				7: 'Июль',
+				8: 'Август',
+				9: 'Сентябрь',
+				10: 'Октябрь',
+				11: 'Ноябрь',
+				12: 'Декабрь'
+			}
+
+		}
+	},
 	computed: {
 		calendar_weeks() {
 			let first_day_month = new Date(
@@ -128,13 +143,13 @@ function calendar_resize() {
 
 	let new_width 	= width / 7;
 	let new_height 	= height / num_weeks;
-	// console.log(num_days, num_weeks);
 
 	$('.calendar_cell').css({
 		width: 	Math.min(new_width, new_height),
 		height: Math.min(new_width, new_height)
 	});
-	// console.log(width, height, new_width, new_height, Math.min(new_width, new_height));
+
+	$(".calendar").addClass('active');
 }
 
 setInterval(calendar_resize, 1000 / 20);

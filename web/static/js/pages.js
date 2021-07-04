@@ -1,18 +1,10 @@
-// const config = {
-// 	mainPage: 'day',
-// 	lastDaysNumber: 7,
-// 	mainPageData: {
-// 		year: 	new Date().getFullYear(),
-// 		month: 	new Date().getMonth() + 1,
-// 		day: 	new Date().getDate()
-// 	}
-// };
 const config = {
-	mainPage: 'calendar',
+	mainPage: 'day',
 	lastDaysNumber: 7,
 	mainPageData: {
 		year: 	new Date().getFullYear(),
-		month: 	new Date().getMonth() + 1
+		month: 	new Date().getMonth() + 1,
+		day: 	new Date().getDate()
 	}
 };
 

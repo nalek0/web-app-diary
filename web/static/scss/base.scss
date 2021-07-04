@@ -1,9 +1,10 @@
-$color1_r: 	14;
-$color1_g: 	18;
-$color1_b: 	72;
-$color2_r: 	181;
-$color2_g: 	162;
-$color2_b: 	130;
+$color1_r: 	var(--color1_r);
+$color1_g: 	var(--color1_g);
+$color1_b: 	var(--color1_b);
+$color2_r: 	var(--color2_r);
+$color2_g: 	var(--color2_g);
+$color2_b: 	var(--color2_b);
+$wallpaper: var(--wallpaper);
 
 body {
 	margin: 0;
@@ -15,7 +16,7 @@ body {
 	width: 100%;
 	height: 100%;
 	
-	background: url('/static/img/wallpaper.jpg');
+	background: $wallpaper;
 	background-size: cover;
 	background-position: center;
 

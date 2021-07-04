@@ -74,17 +74,15 @@ class PageClient {
 var pageClient = new PageClient();
 pageClient.add_page(
 	new Page(
-		name 	= 'last-days', 
-		args 	= [],
-		onstart = async data => {
+		'last-days', [],
+		async data => {
 			app.last_days_posts = await eel.get_last_days_posts(7)();
 		}
 	)
 );
 pageClient.add_page(
 	new Page(
-		name 	= 'day',
-		args 	= ['year', 'month', 'day', 'text'],
+		'day', ['year', 'month', 'day', 'text'],
 		onstart = async data => {
 			app.page_data.text = await eel.get_text(data.year, data.month, data.day)();
 		},
@@ -95,8 +93,7 @@ pageClient.add_page(
 );
 pageClient.add_page(
 	new Page(
-		name 	= 'calendar',
-		args 	= []
+		'calendar', []
 	)
 );
 

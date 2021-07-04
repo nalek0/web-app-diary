@@ -1,0 +1,14 @@
+{
+    "highlight_color": {
+        "r": 181,
+        "g": 162,
+        "b": 130
+    },
+    "main_color": {
+        "r": 14,
+        "g": 18,
+        "b": 72
+    },
+    "wallpaper": "wallpaper.jpg",
+    "folder": "web"
+}

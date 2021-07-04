@@ -35,7 +35,11 @@ Vue.component('nav-block', {
 				},
 				{
 					name: 'calendar',
-					text: 'Календарь'
+					text: 'Календарь',
+					data: {
+						year: 	new Date().getFullYear(),
+						month: 	new Date().getMonth() + 1
+					}
 				}
 			]
 		}

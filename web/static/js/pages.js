@@ -93,7 +93,7 @@ pageClient.add_page(
 );
 pageClient.add_page(
 	new Page(
-		'calendar', []
+		'calendar', ['year', 'month']
 	)
 );
 

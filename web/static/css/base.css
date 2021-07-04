@@ -95,30 +95,42 @@ body {
   align-items: center; }
 
 #calendar article {
-  text-align: center; }
-#calendar .week {
-  margin: auto;
-  display: inline-block; }
-  #calendar .week:not(:last-child) {
-    margin-bottom: 15px; }
-  #calendar .week .day {
-    font-size: 2.5rem;
-    width: 80px;
-    height: 80px;
-    display: inline-flex;
-    justify-content: space-around;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px; }
+  #calendar article .calendar_part {
+    height: 100%;
+    display: flex;
     align-items: center;
-    border: solid 3px transparent;
-    cursor: pointer;
-    transition: all 0.3s ease-out; }
-    #calendar .week .day:not(:last-child) {
-      margin-right: 15px; }
-    #calendar .week .day:hover {
-      border-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.75); }
-    #calendar .week .day.other_month {
-      color: grey; }
-      #calendar .week .day.other_month:hover {
-        border-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.2); }
+    justify-content: space-evenly; }
+  #calendar article .btn-part img.cal-btn {
+    width: 100%;
+    cursor: pointer; }
+#calendar .calendar {
+  text-align: center; }
+  #calendar .calendar .week {
+    margin: auto;
+    display: inline-block; }
+    #calendar .calendar .week:not(:last-child) {
+      margin-bottom: 15px; }
+    #calendar .calendar .week .day {
+      font-size: 2.5rem;
+      width: 80px;
+      height: 80px;
+      display: inline-flex;
+      justify-content: space-around;
+      align-items: center;
+      border: solid 3px transparent;
+      cursor: pointer;
+      transition: all 0.3s ease-out; }
+      #calendar .calendar .week .day:not(:last-child) {
+        margin-right: 15px; }
+      #calendar .calendar .week .day:hover {
+        border-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.75); }
+      #calendar .calendar .week .day.other_month {
+        color: grey;
+        background: rgba(var(--color1_r), var(--color1_g), var(--color1_b), 0.25); }
+        #calendar .calendar .week .day.other_month:hover {
+          border-color: rgba(var(--color2_r), var(--color2_g), var(--color2_b), 0.2); }
 
 .button {
   display: inline-block;
